@@ -1,0 +1,620 @@
+<body>
+    <div class="mdl-layout__container">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer has-drawer is-upgraded"
+            data-upgraded=",MaterialLayout">
+            <header class="mdl-layout__header color-background is-casting-shadow"
+                style="background-color:#A6CAF0 !important;" data-darkreader-inline-bgcolor="">
+                <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button"><i
+                        class="material-icons"></i></div>
+                <div class="mdl-layout__header-row">
+                    <span id="ville" class="mdl-layout-title city-field">BREST</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <label id="RESULT_049_001_001_045.xml" class="click-imprimer" onclick="fenetreImprimer();"
+                        for="fixed-header-drawer-exp">
+                        <i class="material-icons">print</i>
+                    </label>
+                </div>
+            </header>
+
+            <div class="mdl-layout__drawer" aria-hidden="true">
+                <nav class="mdl-navigation">
+
+
+                    <p class="align-center info-text bold text-drawer color-background"
+                        style="background-color:#A6CAF0 !important;" data-darkreader-inline-bgcolor="">
+                        Résultats détaillés
+                    </p>
+                </nav>
+                <table id="bureau" class="liste-bureau">
+                    <tbody>
+                        <tr class="first-line"></tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_027" href="#/RESULT_049_001_001_027"
+                                    onclick="afficherResultat(this)">027-MAIRIE CENTRALE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_028" href="#/RESULT_049_001_001_028"
+                                    onclick="afficherResultat(this)">028-MAIRIE CENTRALE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_029" href="#/RESULT_049_001_001_029"
+                                    onclick="afficherResultat(this)">029-GROUPE SCOLAIRE SIMONE VEIL</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_030" href="#/RESULT_049_001_001_030"
+                                    onclick="afficherResultat(this)">030-GROUPE SCOLAIRE SIMONE VEIL</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_031" href="#/RESULT_049_001_001_031"
+                                    onclick="afficherResultat(this)">031-GROUPE SCOLAIRE JEAN MACE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_032" href="#/RESULT_049_001_001_032"
+                                    onclick="afficherResultat(this)">032-GROUPE SCOLAIRE JEAN MACE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_033" href="#/RESULT_049_001_001_033"
+                                    onclick="afficherResultat(this)">033-GROUPE SCOLAIRE JEAN MACE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_034" href="#/RESULT_049_001_001_034"
+                                    onclick="afficherResultat(this)">034-GROUPE SCOLAIRE SANQUER</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_035" href="#/RESULT_049_001_001_035"
+                                    onclick="afficherResultat(this)">035-GROUPE SCOLAIRE SANQUER</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_036" href="#/RESULT_049_001_001_036"
+                                    onclick="afficherResultat(this)">036-GROUPE SCOLAIRE SANQUER</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_037" href="#/RESULT_049_001_001_037"
+                                    onclick="afficherResultat(this)">037-HOTEL DE LA METROPOLE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_038" href="#/RESULT_049_001_001_038"
+                                    onclick="afficherResultat(this)">038-PATRONAGE LAÏQUE GUERIN</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_039" href="#/RESULT_049_001_001_039"
+                                    onclick="afficherResultat(this)">039-GROUPE SCOLAIRE GUERIN</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_040" href="#/RESULT_049_001_001_040"
+                                    onclick="afficherResultat(this)">040-GROUPE SCOLAIRE GUERIN</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_041" href="#/RESULT_049_001_001_041"
+                                    onclick="afficherResultat(this)">041-PATRONAGE LAÏQUE SANQUER</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_042" href="#/RESULT_049_001_001_042"
+                                    onclick="afficherResultat(this)">042-PATRONAGE LAÏQUE SANQUER</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_043" href="#/RESULT_049_001_001_043"
+                                    onclick="afficherResultat(this)">043-GROUPE SCOLAIRE PILIER ROUGE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_044" href="#/RESULT_049_001_001_044"
+                                    onclick="afficherResultat(this)">044-GROUPE SCOLAIRE PILIER ROUGE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_045" href="#/RESULT_049_001_001_045"
+                                    onclick="afficherResultat(this)">045-GROUPE SCOLAIRE FORESTOU</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_046" href="#/RESULT_049_001_001_046"
+                                    onclick="afficherResultat(this)">046-GROUPE SCOLAIRE FORESTOU</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_047" href="#/RESULT_049_001_001_047"
+                                    onclick="afficherResultat(this)">047-MAISON POUR TOUS DU GUELMEUR</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_048" href="#/RESULT_049_001_001_048"
+                                    onclick="afficherResultat(this)">048-MAISON POUR TOUS DU GUELMEUR</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_049" href="#/RESULT_049_001_001_049"
+                                    onclick="afficherResultat(this)">049-MAIRIE DE SAINT-MARC</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_050" href="#/RESULT_049_001_001_050"
+                                    onclick="afficherResultat(this)">050-GROUPE SCOLAIRE J. KERHOAS</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_051" href="#/RESULT_049_001_001_051"
+                                    onclick="afficherResultat(this)">051-GROUPE SCOLAIRE KERISBIAN</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_052" href="#/RESULT_049_001_001_052"
+                                    onclick="afficherResultat(this)">052-GROUPE SCOLAIRE KERISBIAN</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_053" href="#/RESULT_049_001_001_053"
+                                    onclick="afficherResultat(this)">053-FOYER LAÏQUE de SAINT-MARC</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_054" href="#/RESULT_049_001_001_054"
+                                    onclick="afficherResultat(this)">054-FOYER LAÏQUE de SAINT-MARC</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_055" href="#/RESULT_049_001_001_055"
+                                    onclick="afficherResultat(this)">055-PATRONAGE LAIQUE du PILIER ROUGE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_056" href="#/RESULT_049_001_001_056"
+                                    onclick="afficherResultat(this)">056-PATRONAGE LAIQUE du PILIER ROUGE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_057" href="#/RESULT_049_001_001_057"
+                                    onclick="afficherResultat(this)">057-GROUPE SCOLAIRE KERBERNARD</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_058" href="#/RESULT_049_001_001_058"
+                                    onclick="afficherResultat(this)">058-GROUPE SCOLAIRE KERBERNARD</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_059" href="#/RESULT_049_001_001_059"
+                                    onclick="afficherResultat(this)">059-MAISON POUR TOUS DE PEN AR CRÉACH</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_060" href="#/RESULT_049_001_001_060"
+                                    onclick="afficherResultat(this)">060-CENTRE SOCIAL DE PEN AR CRÉACH</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_061" href="#/RESULT_049_001_001_061"
+                                    onclick="afficherResultat(this)">061-GROUPE SCOLAIRE PEN-AR-STREAT</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_062" href="#/RESULT_049_001_001_062"
+                                    onclick="afficherResultat(this)">062-MAIRIE DE L'EUROPE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_063" href="#/RESULT_049_001_001_063"
+                                    onclick="afficherResultat(this)">063-GROUPE SCOLAIRE JACQUARD</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_064" href="#/RESULT_049_001_001_064"
+                                    onclick="afficherResultat(this)">064-GROUPE SCOLAIRE JACQUARD</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_065" href="#/RESULT_049_001_001_065"
+                                    onclick="afficherResultat(this)">065-GROUPE SCOLAIRE JACQUARD</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_066" href="#/RESULT_049_001_001_066"
+                                    onclick="afficherResultat(this)">066-GROUPE SCOLAIRE KERICHEN</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_067" href="#/RESULT_049_001_001_067"
+                                    onclick="afficherResultat(this)">067-GROUPE SCOLAIRE KERICHEN</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_068" href="#/RESULT_049_001_001_068"
+                                    onclick="afficherResultat(this)">068-GROUPE SCOLAIRE KERICHEN</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_069" href="#/RESULT_049_001_001_069"
+                                    onclick="afficherResultat(this)">069-GROUPE SCOLAIRE AUBRAC</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_070" href="#/RESULT_049_001_001_070"
+                                    onclick="afficherResultat(this)">070-GROUPE SCOLAIRE AUBRAC</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_071" href="#/RESULT_049_001_001_071"
+                                    onclick="afficherResultat(this)">071-GROUPE SCOLAIRE AUBRAC</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_072" href="#/RESULT_049_001_001_072"
+                                    onclick="afficherResultat(this)">072-GROUPE SCOLAIRE DUKAS</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_073" href="#/RESULT_049_001_001_073"
+                                    onclick="afficherResultat(this)">073-GROUPE SCOLAIRE DUKAS</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_074" href="#/RESULT_049_001_001_074"
+                                    onclick="afficherResultat(this)">074-GROUPE SCOLAIRE DUKAS</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_075" href="#/RESULT_049_001_001_075"
+                                    onclick="afficherResultat(this)">075-GROUPE SCOLAIRE KERINOU</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_076" href="#/RESULT_049_001_001_076"
+                                    onclick="afficherResultat(this)">076-GROUPE SCOLAIRE KERINOU</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_077" href="#/RESULT_049_001_001_077"
+                                    onclick="afficherResultat(this)">077-GROUPE SCOLAIRE BUISSON</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_078" href="#/RESULT_049_001_001_078"
+                                    onclick="afficherResultat(this)">078-GROUPE SCOLAIRE BUISSON</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_079" href="#/RESULT_049_001_001_079"
+                                    onclick="afficherResultat(this)">079-MAIRIE DE LAMBEZELLEC</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_080" href="#/RESULT_049_001_001_080"
+                                    onclick="afficherResultat(this)">080-MAIRIE DE BELLEVUE (SALLE LA BARAQUE)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_081" href="#/RESULT_049_001_001_081"
+                                    onclick="afficherResultat(this)">081-MAIRIE DE BELLEVUE (SALLE LA BARAQUE)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_082" href="#/RESULT_049_001_001_082"
+                                    onclick="afficherResultat(this)">082-MAIRIE DE BELLEVUE (SALLE LA BARAQUE)</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_083" href="#/RESULT_049_001_001_083"
+                                    onclick="afficherResultat(this)">083-GROUPE SCOLAIRE QUIZAC</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_084" href="#/RESULT_049_001_001_084"
+                                    onclick="afficherResultat(this)">084-GROUPE SCOLAIRE QUIZAC</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_085" href="#/RESULT_049_001_001_085"
+                                    onclick="afficherResultat(this)">085-GROUPE SCOLAIRE QUIZAC</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_086" href="#/RESULT_049_001_001_086"
+                                    onclick="afficherResultat(this)">086-GROUPE SCOLAIRE KERHALLET</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_087" href="#/RESULT_049_001_001_087"
+                                    onclick="afficherResultat(this)">087-GROUPE SCOLAIRE KERHALLET</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_088" href="#/RESULT_049_001_001_088"
+                                    onclick="afficherResultat(this)">088-GROUPE SCOLAIRE DUPOUY</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_089" href="#/RESULT_049_001_001_089"
+                                    onclick="afficherResultat(this)">089-GROUPE SCOLAIRE DUPOUY</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_090" href="#/RESULT_049_001_001_090"
+                                    onclick="afficherResultat(this)">090-PATRONAGE LAIQUE DE LA CAVALE BLANCHE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_091" href="#/RESULT_049_001_001_091"
+                                    onclick="afficherResultat(this)">091-PATRONAGE LAIQUE DE LA CAVALE BLANCHE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_092" href="#/RESULT_049_001_001_092"
+                                    onclick="afficherResultat(this)">092-GROUPE SCOLAIRE QUESTEL</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_093" href="#/RESULT_049_001_001_093"
+                                    onclick="afficherResultat(this)">093-GROUPE SCOLAIRE QUESTEL</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_094" href="#/RESULT_049_001_001_094"
+                                    onclick="afficherResultat(this)">094-GROUPE SCOLAIRE QUESTEL</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_095" href="#/RESULT_049_001_001_095"
+                                    onclick="afficherResultat(this)">095-L.E.P. LANROZE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_096" href="#/RESULT_049_001_001_096"
+                                    onclick="afficherResultat(this)">096-L.E.P. LANROZE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_097" href="#/RESULT_049_001_001_097"
+                                    onclick="afficherResultat(this)">097-GROUPE SCOLAIRE ROSTAND</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_098" href="#/RESULT_049_001_001_098"
+                                    onclick="afficherResultat(this)">098-GROUPE SCOLAIRE ROSTAND</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_099" href="#/RESULT_049_001_001_099"
+                                    onclick="afficherResultat(this)">099-GROUPE SCOLAIRE ROSTAND</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_100" href="#/RESULT_049_001_001_100"
+                                    onclick="afficherResultat(this)">100-C.E.S. PENN AR C'HLEUZ</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_101" href="#/RESULT_049_001_001_101"
+                                    onclick="afficherResultat(this)">101-C.E.S. PENN AR C'HLEUZ</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_102" href="#/RESULT_049_001_001_102"
+                                    onclick="afficherResultat(this)">102-PEPINIERE D'ENTREPRISES DE MEZHEVEN</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_103" href="#/RESULT_049_001_001_103"
+                                    onclick="afficherResultat(this)">103-CENTRE TECHNIQUE MUNICIPAL</a></td>
+                        </tr>
+                        <tr>
+                            <td class="liste"><a id="RESULT_049_001_001_104" href="#/RESULT_049_001_001_104"
+                                    onclick="afficherResultat(this)">104-CENTRE TECHNIQUE MUNICIPAL</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <main class="mdl-layout__content">
+                <div class="page-content">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet">
+                            <p id="scrutin" class="info-text">
+                                <span class="color-text" style="color:#A6CAF0 !important;"
+                                    data-darkreader-inline-color="">Scrutin : </span>
+                                Élections Législatives 1er tour
+                            </p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet">
+                            <span id="date" class="date-field info-text">dimanche 12 juin 2022</span>
+                        </div>
+                    </div>
+
+                    <div class="mdl-grid">
+                        <div id="secteur" class="mdl-cell mdl-cell--8-col mdl-cell--5-col-tablet">
+                            <p class="info-text">
+                                <span class="color-text" style="color:#A6CAF0 !important;"
+                                    data-darkreader-inline-color="">Secteur : </span>
+                                <select id="CBsecteur" class="info-text">
+                                    <option value="1" selected="selected">2ème CIRCONSCRIPTION-BREST VILLE</option>
+                                    <option value="2">3ème CIRCONSCRIPTION-BREST OUEST</option>
+                                </select>
+                            </p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet info-text">
+                            <button onclick="afficherResultatGlobal();global=1;"
+                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button-res info-text color-background"
+                                data-upgraded=",MaterialButton,MaterialRipple"
+                                style="background-color:#A6CAF0 !important;" data-darkreader-inline-bgcolor="">
+                                Résultat global
+                                <span class="mdl-button__ripple-container"><span class="mdl-ripple is-animating"
+                                        style="width: 388.27px; height: 388.27px; transform: translate(-50%, -50%) translate(90px, 25px);"></span></span></button>
+                        </div>
+                    </div>
+
+                    <div id="resultat" class="info-text">
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--12-col align-center">
+                                <p class="res bold info-text color-background"
+                                    style="background-color:#A6CAF0 !important;">Résultat définitif : 045 - GROUPE
+                                    SCOLAIRE FORESTOU</p>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone"><span class="color-text"
+                                    style="color:#A6CAF0 !important;">Inscrits : </span>780</div>
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone"><span class="color-text"
+                                    style="color:#A6CAF0 !important;">Total votants : </span>397</div>
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone"><span class="color-text"
+                                    style="color:#A6CAF0 !important;">Participation : </span>50,90 %</div>
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone"><span class="color-text"
+                                    style="color:#A6CAF0 !important;">Blancs : </span>6</div>
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone"><span class="color-text"
+                                    style="color:#A6CAF0 !important;">Nuls : </span>0</div>
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone"><span class="color-text"
+                                    style="color:#A6CAF0 !important;">Exprimés : </span>391</div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">M. CADALEN Pierre-Yves</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">107 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar" style="width:86%;background-color:#000000;">
+                                </div><span class="mobile-remove-padding candidat" style="padding-left:87%;">27,37
+                                    %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">M. LARSONNEUR Jean-Charles</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">68 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar"
+                                    style="width:54.148148148148145%;background-color:#000000;"></div><span
+                                    class="mobile-remove-padding candidat"
+                                    style="padding-left:55.148148148148145%;">17,39 %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">M. SALAMI Réza</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">49 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar"
+                                    style="width:38.22222222222222%;background-color:#000000;"></div><span
+                                    class="mobile-remove-padding candidat"
+                                    style="padding-left:39.22222222222222%;">12,53 %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">M. COATANEA Marc</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">46 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar"
+                                    style="width:35.03703703703704%;background-color:#000000;"></div><span
+                                    class="mobile-remove-padding candidat"
+                                    style="padding-left:36.03703703703704%;">11,76 %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">Mme POULLAOUEC Yvette</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">27 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar"
+                                    style="width:19.11111111111111%;background-color:#000000;"></div><span
+                                    class="mobile-remove-padding candidat" style="padding-left:20.11111111111111%;">6,91
+                                    %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">Mme GELEBART Anne</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">22 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar"
+                                    style="width:15.925925925925926%;background-color:#000000;"></div><span
+                                    class="mobile-remove-padding candidat"
+                                    style="padding-left:16.925925925925924%;">5,63 %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">M. CABON Mikaël</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">21 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar"
+                                    style="width:15.925925925925926%;background-color:#000000;"></div><span
+                                    class="mobile-remove-padding candidat"
+                                    style="padding-left:16.925925925925924%;">5,37 %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">Mme LOUVEL Elisabeth</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">17 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar"
+                                    style="width:12.74074074074074%;background-color:#000000;"></div><span
+                                    class="mobile-remove-padding candidat" style="padding-left:13.74074074074074%;">4,35
+                                    %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">Mme MIGEREL Sandrine</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">13 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar"
+                                    style="width:9.555555555555555%;background-color:#000000;"></div><span
+                                    class="mobile-remove-padding candidat"
+                                    style="padding-left:10.555555555555555%;">3,32 %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">M. LE CORRE Jean-Yves</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">6 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar"
+                                    style="width:3.185185185185185%;background-color:#000000;"></div><span
+                                    class="mobile-remove-padding candidat" style="padding-left:4.185185185185185%;">1,53
+                                    %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">M. PELLICANO Fortuné</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">6 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar"
+                                    style="width:3.185185185185185%;background-color:#000000;"></div><span
+                                    class="mobile-remove-padding candidat" style="padding-left:4.185185185185185%;">1,53
+                                    %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">Mme VASSEUR Alice</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">3 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar" style="width:0%;background-color:#000000;">
+                                </div><span class="mobile-remove-padding candidat" style="padding-left:1%;">0,77
+                                    %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">M. COLLARD Rémy</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">3 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar" style="width:0%;background-color:#000000;">
+                                </div><span class="mobile-remove-padding candidat" style="padding-left:1%;">0,77
+                                    %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">Mme MADEC Sylvia</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">2 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar" style="width:0%;background-color:#000000;">
+                                </div><span class="mobile-remove-padding candidat" style="padding-left:1%;">0,51
+                                    %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">M. HEBERT Gérald</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">1 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar" style="width:0%;background-color:#000000;">
+                                </div><span class="mobile-remove-padding candidat" style="padding-left:1%;">0,26
+                                    %</span>
+                            </div>
+                        </div>
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone ligne-candidat"><span
+                                    class="candidat">M. HITA Melvyn</span></div>
+                            <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone ligne-candidat"><span
+                                    class="candidat padding-vote">0 votes</span></div>
+                            <div
+                                class="mdl-cell mdl-cell--7-col mdl-cell--2-col-tablet mdl-cell--1-col-phone ligne-candidat">
+                                <div class="candidat style-bar hide-bar" style="width:0%;background-color:#000000;">
+                                </div><span class="mobile-remove-padding candidat" style="padding-left:1%;">0,00
+                                    %</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <div class="mdl-layout__obfuscator"></div>
+        </div>
+    </div>
+
+    <script src="Soluvote_fichiers/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="Soluvote_fichiers/soluvote.js"></script>
+    <script src="Soluvote_fichiers/material.min.js"></script>
+
+
+
+</body>
