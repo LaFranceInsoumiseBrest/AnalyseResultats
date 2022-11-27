@@ -1,4 +1,6 @@
 *.log
 *.pyc
+tmp/
+test/
 
 .DS_Store
