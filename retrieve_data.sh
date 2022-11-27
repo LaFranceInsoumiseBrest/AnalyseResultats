@@ -2,11 +2,21 @@
 
 python="/Users/leolelonquer/opt/anaconda3/bin/python"
 
-base_urls="https://www.brest.fr/fileadmin/imported_for_brest/fileadmin/resultats_electoraux/2022-legislatives/premier-tour/HTML/xml/ \
-https://www.brest.fr/fileadmin/imported_for_brest/fileadmin/resultats_electoraux/2022-legislatives/second-tour/HTML/xml/"
+# Pour les tests utiliser avec seulement generate_csv avec ces deux paramètres
+tour=1
+circo=2
 
+base_url_1ertour="https://www.brest.fr/fileadmin/imported_for_brest/fileadmin/resultats_electoraux/2022-legislatives/premier-tour/HTML/xml/"
+base_url_2emetour="https://www.brest.fr/fileadmin/imported_for_brest/fileadmin/resultats_electoraux/2022-legislatives/second-tour/HTML/xml/"
+
+generate_list_bureaux () {
+    curl "${base_url}Election.xml" > $tmp_dir/Election.xml
+    $python list_bureaux_fromxml.py $tmp_dir/Election.xml $tmp_dir
+}
 
 retrieve_votes () {
+    in_file="$1"
+    out_dir="$2"
     mkdir -p $out_dir
     cat $in_file | while read line; do
         numero=$(echo $line | cut -d';' -f1  )
@@ -20,34 +30,33 @@ retrieve_votes () {
 }
 
 
-tour=1
-for base_url in $base_urls ; do
+generate_csv () {
+    if [[ $tour == 1 ]]; then
+        base_url=$base_url_1ertour
+    elif [[ $tour == 2 ]]; then
+        base_url=$base_url_2emetour
+    fi
+
     tmp_dir=tmp/tour$tour
-    results_dir=resultats
+    results_dir=resultats/
 
     mkdir -p $tmp_dir $results_dir
 
-    curl "${base_url}Election.xml" > $tmp_dir/Election.xml
-    bureaux_files=$($python list_bureaux_fromxml.py $tmp_dir/Election.xml $tmp_dir)
+    generate_list_bureaux 
 
-    # bureaux_files="tmp/tour1/circo2.csv tmp/tour1/circo3.csv tmp/tour2/circo2.csv tmp/tour2/circo3.csv"
-    out_dirs=""
-    for bureau_file in $bureaux_files; do
-        in_file="$bureau_file"
-        circo=$(basename $bureau_file | cut -d. -f1)
-        out_dir="$tmp_dir/$circo"
-        retrieve_votes
+    # bureaux_files="tmp/tour1/circo2.csv"
+    retrieve_votes "$tmp_dir/circo${circo}.csv" "$tmp_dir/circo$circo"
 
-        out_dirs="$out_dirs $out_dir"
+    #out_dirs="tmp/tour1/circo2"
+    $python convert_results_fromxml2csv.py $out_dir "$results_dir/tour${tour}_circo${circo}.csv"
+}
+
+# generate_csv
+
+for tour in 1 2; do 
+    for circo in 2 3; do
+        generate_csv
     done
-
-    #out_dirs="tmp/tour1/circo2 tmp/tour1/circo3 tmp/tour2/circo2 tmp/tour2/circo3"
-    for out_dir in $out_dirs; do
-        circo=$(basename $out_dir | cut -d. -f1)
-        $python convert_results_fromxml2csv.py $out_dir "$results_dir/tour${tour}_${circo}.csv"
-    done
-
-    tour=$(($tour + 1))
 done
 
 
