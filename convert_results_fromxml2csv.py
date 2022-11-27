@@ -42,4 +42,4 @@ if __name__ == "__main__":
 
     df = pd.DataFrame.from_records(result_list)
     print(df)
-    df.to_csv(result_file, sep="\t")
+    df.to_csv(result_file, sep=";")
