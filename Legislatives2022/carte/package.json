@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "elm make Main.elm --output=carte.html"
+  },
+  "dependencies": {
+    "elm": "^0.19.1-5"
+  }
+}
