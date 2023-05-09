@@ -11,5 +11,6 @@ le code front est en [Elm](https://elm-lang.org/)
 
 ## TODO
 
-[ ] chargement des données dynamiquement
-[ ] automatisation de la récupèration des données
+- [ ] chargement des données dynamiquement
+- [ ] automatisation de la récupèration des données
+- [ ] enlever Debug.*
