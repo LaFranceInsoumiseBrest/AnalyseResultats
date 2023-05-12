@@ -1,0 +1,9 @@
+Union gauche 2022 = Mélenchon + Roussel + Poutou + Jadot + Hidalgo (= ceux qui participent potentiellement à la nouvelle UP)
+
+Union gauche 2017 = Mélenchon + Hamon + Poutou
+
+Toutes les cartes sont à la même échelle sauf les cartes union-gauche car la borne supérieure était plus élevée 
+
+Gagnant 2017: en gris c'est Fillon 
+
+Gagnant circos 2017 et 2022 : Macron a gagné dans toutes les circonscriptions, c'est pour ça que j'ai comparé Macron à l'union de la gauche plutôt qu'à Mélenchon 
