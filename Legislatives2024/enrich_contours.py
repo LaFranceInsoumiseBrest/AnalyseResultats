@@ -1,12 +1,17 @@
 import pandas as pd
 import matplotlib
 from collections import defaultdict
+from copy import deepcopy
 
 #import geopandas as gpd
 import json
 
 options_score = {}
 options_geometry = {}
+participation = True
+# participation_color_map = "RdYlGn"
+participation_color_map = "brg"
+
 
 # circos29-23-tour1
 # score_file = "bureaux_resultats/29-2-3/circos23-tour1.csv"
@@ -281,48 +286,68 @@ with open(geometry_file) as input_f:
 #     with open(geometry_file) as input_f:
 #         feat_collection = json.load(input_f)
 
-feat_iterator = iter(feat_collection["features"]) 
-if "filter" in options_geometry:
-    key, value = options_geometry["filter"]
-    feat_iterator = filter(lambda feat: feat["properties"][key] == value, feat_iterator)
+if participation:
+    feat_collection2 = deepcopy(feat_collection)
 
-new_features = []
-for feature in feat_iterator:
-    codeBureauVote = feature["properties"]["codeBureauVote"]
-    llieu = feature["properties"].get("llieu", None)
-    if codeBureauVote in edf.index: 
-        name = edf.loc[codeBureauVote]["title"]
-        if llieu:
-            name = name + " - " + llieu
-        new_prop = {"name": name,
-                    "description": edf.loc[codeBureauVote]["description"],
-                    "_umap_options": {"fillColor": edf.loc[codeBureauVote]["winner_color"],
-                                      "fillOpacity": min(1, opacity_offset + opacity_factor*(edf.loc[codeBureauVote]["winner_percent"])/100),
-                                      "color": "White", "weight": 1}}
-    else:
-        name = feature["properties"]["nomCommune"] + " - " + feature["properties"]["codeBureauVote"].split("_")[1]
-        new_prop = {"name": name,
-                    "description": "AUCUNE DONNEE INSEE",
-                    "_umap_options": {"fillColor": "White",
-                                      "fillOpacity": 0,
-                                      "color": "White", "weight": 1}}
-    
-    feature["properties"] = new_prop
-    new_features.append(feature)
+def color_and_write_feature_collection(feat_collection, criterion="Nuance"):
+    feat_iterator = iter(feat_collection["features"]) 
+    if "filter" in options_geometry:
+        key, value = options_geometry["filter"]
+        feat_iterator = filter(lambda feat: feat["properties"][key] == value, feat_iterator)
 
-feat_collection["features"] = new_features
 
-with open(output_file, "w") as output_f:
-    _ = json.dump(feat_collection, output_f, ensure_ascii=False, separators=(',', ':'))
 
-    
+    new_features = []
+    for feature in feat_iterator:
+        codeBureauVote = feature["properties"]["codeBureauVote"]
+        llieu = feature["properties"].get("llieu", None)
+        if codeBureauVote in edf.index: 
+            name = edf.loc[codeBureauVote]["title"]
+            if llieu:
+                name = name + " - " + llieu
+
+            if criterion == "Nuance":
+                umap_option = {"fillColor": edf.loc[codeBureauVote]["winner_color"],
+                               "fillOpacity": min(1, opacity_offset + opacity_factor*(edf.loc[codeBureauVote]["winner_percent"])/100),
+                               "color": "White", "weight": 1}
+            elif criterion == "Participation":
+                umap_option =  {"fillColor": percentage_to_color(edf.loc[codeBureauVote]["Participation"], 
+                                                                 participation_color_map, rev=False, percent_offset=0),
+                                "fillOpacity" : 0.8,
+                                "color": "White", "weight": 1}
+
+            new_prop = {"name": name,
+                        "description": edf.loc[codeBureauVote]["description"],
+                        "_umap_options": umap_option}
+        else:
+            name = feature["properties"]["nomCommune"] + " - " + feature["properties"]["codeBureauVote"].split("_")[1]
+            new_prop = {"name": name,
+                        "description": "AUCUNE DONNEE INSEE",
+                        "_umap_options": {"fillColor": "White",
+                                        "fillOpacity": 0,
+                                        "color": "White", "weight": 1}}
+        
+        feature["properties"] = new_prop
+        new_features.append(feature)
+
+    feat_collection["features"] = new_features
+
+    out = output_file
+    if criterion == "Participation":
+        name, extension = output_file.split(".")
+        out = name + "_participation." + extension
+
+    with open(out, "w") as output_f:
+        _ = json.dump(feat_collection, output_f, ensure_ascii=False, separators=(',', ':'))
+
+
+color_and_write_feature_collection(feat_collection)
+if participation:
+    color_and_write_feature_collection(feat_collection2, criterion="Participation")
+
 
 
 # # print(edf["color_winner"])
-
-
-
-
 
 
 
