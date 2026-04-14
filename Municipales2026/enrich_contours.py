@@ -14,19 +14,18 @@ participation_color_map = "brg"
 
 
 # Brest tour1
-score_file = "brest-2026-municipales-bv-tour1.csv"
-geometry_file = "contoursBV2026Brest.geojson"
-output_file = "brest_tour1.geojson"
-opacity_offset = 0
-opacity_factor = 1.5
-#options_score["filter"] = ("Code département", "29")
-
-# circos29-23-tour1
-# score_file = "bureaux_scores/29-2-3/circos23-tour1.csv"
-# geometry_file = "contours/features_circos23_v2.geojson"
-# output_file = "results/circos23_tour1.geojson"
+# score_file = "brest-2026-municipales-bv-tour1.csv"
+# geometry_file = "contoursBV2026Brest.geojson"
+# output_file = "brest_tour1.geojson"
 # opacity_offset = 0
 # opacity_factor = 1.5
+
+# Brest tour2
+score_file = "brest-2026-municipales-bv-tour2.csv"
+geometry_file = "contoursBV2026Brest.geojson"
+output_file = "brest_tour2.geojson"
+opacity_offset = 0
+opacity_factor = 1.5
 
 
 # https://matplotlib.org/stable/users/explain/colors/colormaps.html
@@ -36,7 +35,7 @@ color_mapping = {
   "LCOM": "#CC0000",   # Rouge pur (Parti communiste)
   "LSOC": "#E75480",   # Rose foncé (Parti socialiste)
   "LVEC": "#2E8B57",   # Vert forêt (Les Écologistes)
-  "LUG": "#f79502",    # Rose-violet (union gauche)
+  "LUG": "#f79502",    # Orange (union gauche)
   "LDVG": "#F06292",   # Rose clair (divers gauche)
   "LECO": "#4CAF50",   # Vert moyen (écologiste)
   "LREG": "#9E9E9E",   # Gris moyen (régionaliste)
@@ -52,15 +51,11 @@ color_mapping = {
   "LDVD": "#1565C0",   # Bleu marine (divers droite)
   "LDSV": "#4A148C",   # Violet foncé (droite souverainiste)
   "LUDR": "#311B92",   # Indigo profond (union droites)
-  "LRN": "#000000",    # Bleu nuit (Rassemblement National)
+  "LRN": "#000000",    # Noir (Rassemblement National)
   "LREC": "#1A1A8C",   # Bleu très sombre (Reconquête)
   "LUXD": "#0D0D5C",   # Bleu quasi-noir (union extrême-droite)
   "LEXD": "#050520"    # Noir bleuté (extrême-droite)
 }
-
-
-
-
 
 def sort_candidats(line_with_na):
     line = line_with_na.dropna()
@@ -104,14 +99,11 @@ def percentage_to_color(percentage, colormap, rev=False, percent_offset=0.5):
 
     return matplotlib.colors.rgb2hex(cmap(idx_color))
 
-
-
 # Code département;Libellé département;Code commune;Libellé commune;Code BV;
 # Inscrits;Votants;% Votants;Abstentions;% Abstentions;Exprimés;% Exprimés/inscrits;% Exprimés/votants;Blancs;% Blancs/inscrits;% Blancs/votants;Nuls;% Nuls/inscrits;% Nuls/votants;
 # Numéro de panneau 1;Nuance candidat 1;Nom candidat 1;Prénom candidat 1;Sexe candidat 1;Voix 1;% Voix/inscrits 1;% Voix/exprimés 1;Elu 1;
 # Numéro de panneau 2;Nuance candidat 2;Nom candidat 2;Prénom candidat 2;Sexe candidat 2;Voix 2;% Voix/inscrits 2;% Voix/exprimés 2;Elu 2;
 # ...
-
 
 df = pd.read_csv(score_file, dtype="str", sep=";")
 
@@ -136,34 +128,14 @@ if "filter" in options_score:
 
 # Inscrits : 895 - Participation : 71,28% - Blancs : 11
 
-# Couleur : celle du gagnant (avec une intensité ?)
+# Couleur : celle du gagnant avec une intensité
 # Contour : ?
-# Rajouter un marqueur pour l"abstention au centrer de la zone ?
 
 edf = pd.concat((
     (df["Code commune"].str.zfill(5) + "_" + df["Code BV"].str.zfill(4)).rename("codeBureauVote"),
     df["% Votants"].map(lambda val: float(val.strip('%').replace(",", "."))).rename("Participation"),
     generate_description(df)),
     axis=1).sort_values(by="codeBureauVote").set_index("codeBureauVote")
-
-
-
-#pd.unique(pd.melt(df.filter(regex=r"^Nuance candidat")).dropna()["value"])
-#array(['ENS', 'DIV', 'ECO', 'DVC', 'RN', 'LR', 'UG', 'REC', 'EXG', 'DSV',
-#       'REG', 'EXD'], dtype=object)
-
-
-# color_spec = defaultdict(lambda:(False, 0.5))
-# color_spec["spring"] = (True, 0.5)
-# color_spec["Wistia"] = (True, 0.5)
-# color_spec["cividis"] = (False, 0.9)
-
-# edf["winner_color"] = edf.apply(lambda s: percentage_to_color(s["winner_percent"], 
-#                                                              colormap_mapping[s["winner"]], 
-#                                                              rev=color_spec[colormap_mapping[s["winner"]]][0],
-#                                                              percent_offset=color_spec[colormap_mapping[s["winner"]]][1]),
-#                                 axis=1)
-
 
 edf["winner_color"] = edf.apply(lambda s: color_mapping[s["winner"]], axis=1)
 
@@ -255,35 +227,3 @@ def color_and_write_feature_collection(feat_collection, criterion="Nuance"):
 color_and_write_feature_collection(feat_collection)
 if participation:
     color_and_write_feature_collection(feat_collection2, criterion="Participation")
-
-
-
-# # print(edf["color_winner"])
-
-
-
-
-
-# import numpy as np
-# vals = np.linspace(0, 100, num=100)
-
-# print(list(map(lambda x: percentage_to_idx(x, "Wistia", rev=color_spec[colormap_mapping["REG"]][0]), vals)))
-# #                                                              percent_offset=color_spec[colormap_mapping[s["winner"]]][1])), vals)))
-
-
-# import numpy as np
-# vals = np.linspace(0, 100, num=100)
-
-# list(map(lambda x: percentage_to_color(x, "Reds"), vals))
-
-
-# import numpy as np
-# vals = np.linspace(0, 100, num=100)
-
-# list(map(lambda idx: matplotlib.colors.rgb2hex(matplotlib.colormaps["Reds"](idx)), list(map(lambda x: percentage_to_idx(x, "Reds"), vals)))
-# )
-
-
-
-
-
