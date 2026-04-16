@@ -1,6 +1,8 @@
 import pandas as pd
 
-df = pd.read_csv('resultats-definitifs-par-bureau-de-vote.csv', sep=";")
+#df = pd.read_csv('resultats-definitifs-par-bureau-de-vote.csv', sep=";")
+df = pd.read_csv('/Users/leolelonquer/Downloads/resultats-definitifs-par-bureau-de-vote.csv', sep=";")
+
 
 print(len(df[df['Code commune'] == "29019"]))
 
