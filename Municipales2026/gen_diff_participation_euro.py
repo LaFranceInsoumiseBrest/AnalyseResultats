@@ -44,7 +44,7 @@ euro = load_participation(euro_file)
 
 # Fusion sur l'index commun
 merged = muni.join(euro, lsuffix="_muni", rsuffix="_euro", how="inner")
-merged["diff"] = merged["participation_euro"] - merged["participation_muni"]
+merged["diff"] = merged["participation_muni"] - merged["participation_euro"]
 
 print(f"Bureaux de vote traités : {len(merged)}")
 print(f"Différence moyenne : {merged['diff'].mean():.2f} pts")

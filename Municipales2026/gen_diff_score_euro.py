@@ -4,14 +4,14 @@ import matplotlib.colors
 from copy import deepcopy
 import json
 
-tour1_file = "brest-2026-municipales-bv-tour1.csv"
-tour2_file = "brest-2026-municipales-bv-tour2.csv"
+euro_file = "brest-2024-euro-bv.csv"
+muni_file = "brest-2026-municipales-bv-tour1.csv"
 geometry_file = "contoursBV2026Brest.geojson"
-output_file = "brest_diff_participation.geojson"
+output_file = "brest_diff_score_euro.geojson"
 
 # Colormap divergent : rouge = baisse, vert = hausse
-colormap = "PuOr"
-max_diff = 10  # points de pourcentage max pour l'échelle de couleur
+colormap = "seismic"
+max_diff = 20  # points de pourcentage max pour l'échelle de couleur
 
 
 def parse_percent(val):
@@ -19,34 +19,39 @@ def parse_percent(val):
     return float(str(val).strip().rstrip('%').strip().replace(',', '.'))
 
 
-def load_participation(csv_file):
+def load_score(csv_file, rank):
     df = pd.read_csv(csv_file, dtype="str", sep=";")
     code_bv = (df["Code commune"].str.zfill(5) + "_" + df["Code BV"].str.strip().str.zfill(4)).rename("codeBureauVote")
-    participation = df["% Votants"].map(parse_percent).rename("participation")
+    score_fi = df[f"% Voix/inscrits {rank}"].map(parse_percent).rename("score_fi")
+    voix_fi = df[f"Voix {rank}"].astype(float).astype(int).rename("voix_fi")
+
     inscrits = df["Inscrits"].rename("inscrits")
     votants = df["Votants"].rename("votants")
-    return pd.concat((code_bv, participation, inscrits, votants), axis=1).set_index("codeBureauVote")
+    return pd.concat((code_bv, score_fi, voix_fi, inscrits, votants), axis=1).set_index("codeBureauVote")
 
 
-def diff_to_color(diff, max_diff=20):
+def diff_to_color(diff, max_diff=20, reverse=False):
     cmap = matplotlib.colormaps[colormap]
     normalized = (diff + max_diff) / (2 * max_diff)
     normalized = max(0.0, min(1.0, normalized))
     idx = round(normalized * (cmap.N - 1))
+    if reverse:
+        idx = cmap.N - idx
     return matplotlib.colors.rgb2hex(cmap(idx))
 
 
 # Chargement des données
-t1 = load_participation(tour1_file)
-t2 = load_participation(tour2_file)
+euro = load_score(euro_file, 4)
+muni = load_score(muni_file, 2)
 
 # Fusion sur l'index commun
-merged = t1.join(t2, lsuffix="_t1", rsuffix="_t2", how="inner")
-merged["diff"] = merged["participation_t2"] - merged["participation_t1"]
+merged = muni.join(euro, lsuffix="_muni", rsuffix="_euro", how="inner")
+merged["diff_score"] = merged["score_fi_muni"] - merged["score_fi_euro"]
+merged["diff_voix"] = merged["voix_fi_muni"] - merged["voix_fi_euro"]
 
 print(f"Bureaux de vote traités : {len(merged)}")
-print(f"Différence moyenne : {merged['diff'].mean():.2f} pts")
-print(f"Min : {merged['diff'].min():.2f} pts — Max : {merged['diff'].max():.2f} pts")
+print(f"Différence moyenne : {merged['diff_score'].mean():.2f} pts")
+print(f"Min : {merged['diff_score'].min():.2f} pts — Max : {merged['diff_score'].max():.2f} pts")
 
 # Chargement du geojson
 with open(geometry_file) as f:
@@ -59,9 +64,9 @@ for feature in feat_collection["features"]:
 
     if codeBV in merged.index:
         row = merged.loc[codeBV]
-        diff = row["diff"]
-        p1 = row["participation_t1"]
-        p2 = row["participation_t2"]
+        diff = row["diff_score"]
+        s1 = row["score_fi_euro"]
+        s2 = row["score_fi_muni"]
 
         sign = "+" if diff >= 0 else ""
         name = f"Bureau {feature['properties']['BVOTE']}"
@@ -69,14 +74,15 @@ for feature in feat_collection["features"]:
             name = f"{name} - {llieu}"
 
         description = (
-            f"Tour 1 : {p1:.2f}%\n"
-            f"Tour 2 : {p2:.2f}%\n"
+            f"Score FI Euro : {s1:.2f}%\n"
+            f"Score FI Muni : {s2:.2f}%\n"
             f"Différence : {sign}{diff:.2f} pts\n\n"
-            f"Inscrits T1 : {row['inscrits_t1']}  |  Votants T1 : {row['votants_t1']}\n"
-            f"Inscrits T2 : {row['inscrits_t2']}  |  Votants T2 : {row['votants_t2']}"
+            f"Euro :\nInscrits : {row['inscrits_euro']} ; Voix FI : {row['voix_fi_euro']}\n"
+            f"Muni :\nInscrits : {row['inscrits_muni']} ; Voix FI : {row['voix_fi_muni']}"
+
         )
 
-        fill_color = diff_to_color(diff, max_diff=max_diff)
+        fill_color = diff_to_color(diff, max_diff=max_diff, reverse=True)
 
         umap_option = {
             "fillColor": fill_color,
